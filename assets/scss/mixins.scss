@@ -1,0 +1,23 @@
+@mixin flexBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin flexAround {
+  display: flex;
+  justify-content: space-around;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin font($size, $line, $weight, $color) {
+  font-family: 'Calibri', sans-serif;
+  font-size: $size;
+  line-height: $line;
+  font-weight: $weight;
+  color: $color;
+}
