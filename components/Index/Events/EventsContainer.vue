@@ -2,14 +2,14 @@
   <div class="events-container">
     <EventRow
       v-for="event of events"
-      :key="event.id"
+      :key="event.tournament_id"
       :event="event"
     />
   </div>
 </template>
 
 <script>
-import EventRow from '@/components/Index/EventRow';
+import EventRow from '@/components/Index/Events/EventRow';
 
 export default {
   name: 'EventsContainer',

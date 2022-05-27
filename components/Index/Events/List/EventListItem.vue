@@ -1,21 +1,19 @@
 <template>
-  <div class="event-game">
-    <div class="event-game__column-date">
+  <div class="event-list-item">
+    <div class="event-list-item__column-date">
       <span>{{ gameDayStart }} {{ gameMonthStart }}</span>
       <span>{{ gameTimeStart }}</span>
-
-      <!--      {{ game.game_start }}-->
     </div>
-    <div class="event-game__column-teams">
+    <div class="event-list-item__column-teams">
       {{ firstTeam }} - {{ secondTeam }}
     </div>
-    <div class="event-game__column">
+    <div class="event-list-item__column">
       {{ ratioFirstTeam }}
     </div>
-    <div class="event-game__column">
+    <div class="event-list-item__column">
       {{ ratioDraw }}
     </div>
-    <div class="event-game__column">
+    <div class="event-list-item__column">
       {{ ratioSecondTeam }}
     </div>
   </div>
@@ -23,23 +21,26 @@
 
 <script>
 export default {
-  name: 'EventGame',
+  name: 'EventListItem',
 
   props: {
-    game: Object,
+    game: {
+      type: Object,
+      required: true,
+    },
   },
   computed: {
     gameDayStart() {
-      return this.$dayjs(this.game.game_start).locale('ru').format('DD');
+      return this.$dayjs.unix(this.game.game_start).locale('ru').format('DD');
     },
     gameMonthStart() {
-      let month = this.$dayjs(this.game.game_start).locale('ru').format('MMM').replace('.', '');
+      let month = this.$dayjs.unix(this.game.game_start).locale('ru').format('MMM').replace('.', '');
       month = month[0].toUpperCase() + month.slice(1);
 
       return month;
     },
     gameTimeStart() {
-      return this.$dayjs(this.game.game_start).locale('ru').format('HH:MM').replace('.', '');
+      return this.$dayjs.unix(this.game.game_start).locale('ru').format('HH:MM').replace('.', '');
     },
 
     firstTeam() {
@@ -50,20 +51,20 @@ export default {
     },
 
     ratioFirstTeam() {
-      return this.game?.game_oc_list[0]?.oc_rate;
+      return this.game.game_oc_list[0].oc_rate;
     },
     ratioDraw() {
-      return this.game?.game_oc_list[1]?.oc_rate;
+      return this.game.game_oc_list[1].oc_rate;
     },
     ratioSecondTeam() {
-      return this.game?.game_oc_list[2]?.oc_rate;
+      return this.game.game_oc_list[2].oc_rate;
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.event-game {
+.event-list-item {
   display: flex;
   align-content: center;
   background: $white;
@@ -71,11 +72,27 @@ export default {
   margin-bottom: 5px;
 }
 
-.event-game__column-date {
+.event-list-item__column {
+  @include font(14px, 16px, 500, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+}
+
+.event-list-item__column-teams {
+  @include font(14px, 16px, 500, #000);
+  display: flex;
+  align-items: center;
+  width: 500px;
+  margin-left: 10px;
+}
+
+.event-list-item__column-date {
   @include font(14px, 18px, 500, #000);
   display: flex;
   flex-direction: column;
-  width: 50px;
+  width: 60px;
   position: relative;
 
   span:last-child {
@@ -92,21 +109,5 @@ export default {
     top: 0;
     right: 0;
   }
-}
-
-.event-game__column-teams {
-  @include font(14px, 16px, 500, #000);
-  display: flex;
-  align-items: center;
-  width: 500px;
-  margin-left: 10px;
-}
-
-.event-game__column {
-  @include font(14px, 16px, 500, #000);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
 }
 </style>

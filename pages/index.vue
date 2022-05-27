@@ -1,15 +1,13 @@
 <template>
   <div class="index-page">
-    <EventsContainer
-      :events="events"
-    />
+    <EventsContainer :events="events"/>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 
-import EventsContainer from '@/components/Index/EventsContainer';
+import EventsContainer from '@/components/Index/Events/EventsContainer';
 
 export default {
   name: 'IndexPage',
@@ -28,6 +26,3 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
-</style>
