@@ -38,7 +38,7 @@ export default {
 
   &:nth-of-type(1) {
     justify-content: flex-start;
-    max-width: 550px;
+    max-width: 700px;
     min-width: 150px;
     width: 100%;
   }

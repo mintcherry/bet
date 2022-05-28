@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .events-container {
-  max-width: 700px;
+  max-width: 890px;
   width: 100%;
   margin: 100px auto 0;
 }

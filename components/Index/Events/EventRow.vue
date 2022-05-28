@@ -70,7 +70,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px;
-  background: #B01A24;
+  background: $bard;
   cursor: pointer;
 }
 

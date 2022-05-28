@@ -8,13 +8,13 @@
       {{ firstTeam }} - {{ secondTeam }}
     </div>
     <div class="event-list-item__column">
-      {{ ratioFirstTeam }}
+      <span>{{ ratioFirstTeam }}</span>
     </div>
     <div class="event-list-item__column">
-      {{ ratioDraw }}
+      <span>{{ ratioDraw }}</span>
     </div>
     <div class="event-list-item__column">
-      {{ ratioSecondTeam }}
+      <span>{{ ratioSecondTeam }}</span>
     </div>
   </div>
 </template>
@@ -73,18 +73,32 @@ export default {
 }
 
 .event-list-item__column {
-  @include font(14px, 16px, 500, #000);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  width: 60px;
+
+  span {
+    @include font(14px, 16px, 500, #000);
+    display: inline-block;
+    background: #ececec;
+    border-radius: 150px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 250ms;
+
+    &:hover {
+      color: $white;
+      background: $bard;
+    }
+  }
 }
 
 .event-list-item__column-teams {
   @include font(14px, 16px, 500, #000);
   display: flex;
   align-items: center;
-  width: 500px;
+  width: 660px;
   margin-left: 10px;
 }
 

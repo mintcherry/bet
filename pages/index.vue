@@ -1,17 +1,21 @@
 <template>
   <div class="index-page">
-    <EventsContainer :events="events"/>
+    <SliderContainer />
+    <EventsContainer :events="events" />
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex';
 
+import SliderContainer from '@/components/Index/Slider/SliderContainer';
 import EventsContainer from '@/components/Index/Events/EventsContainer';
 
 export default {
   name: 'IndexPage',
+  layout: 'default',
   components: {
+    SliderContainer,
     EventsContainer,
   },
 
