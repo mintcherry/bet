@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import EventListItem from '@/components/Index/Events/List/EventListItem';
+import EventListItem from '@/components/Events/List/EventListItem';
 
 export default {
   name: 'EventList',

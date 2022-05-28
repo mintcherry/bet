@@ -99,7 +99,7 @@ export default {
   display: flex;
   align-items: center;
   width: 660px;
-  margin-left: 10px;
+  margin: 0 20px 0 10px;
 }
 
 .event-list-item__column-date {

@@ -28,8 +28,8 @@
 <script>
 import { VueSlideToggle } from 'vue-slide-toggle'
 
-import EventListHeader from '@/components/Index/Events/List/EventListHeader';
-import EventList from '@/components/Index/Events/List/EventList';
+import EventListHeader from '@/components/Events/List/EventListHeader';
+import EventList from '@/components/Events/List/EventList';
 
 import ArrowDown from 'assets/svg/arrow-down.svg'
 

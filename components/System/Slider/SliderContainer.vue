@@ -22,7 +22,7 @@ import 'slick-carousel/slick/slick.css';
 
 import VButton from '@/components/UI/VButton';
 
-import SliderSlide from '@/components/Index/Slider/SliderSlide';
+import SliderSlide from '@/components/System/Slider/SliderSlide';
 
 export default {
   name: 'SliderContainer',
@@ -43,9 +43,9 @@ export default {
       draggable: false,
     },
     sliderImages: [
-      require('@/assets/img/index-slider/slide1.jpg'),
-      require('@/assets/img/index-slider/slide2.jpg'),
-      require('@/assets/img/index-slider/slide3.jpg'),
+      require('assets/img/index-slider/slide1.jpg'),
+      require('assets/img/index-slider/slide2.jpg'),
+      require('assets/img/index-slider/slide3.jpg'),
     ],
   }),
 
@@ -66,5 +66,9 @@ export default {
   max-width: 890px;
   width: 100%;
   height: 340px;
+}
+
+.slider-container__slick {
+  position: relative;
 }
 </style>

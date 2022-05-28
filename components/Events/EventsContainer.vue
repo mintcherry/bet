@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import EventRow from '@/components/Index/Events/EventRow';
+import EventRow from '@/components/Events/EventRow';
 
 export default {
   name: 'EventsContainer',

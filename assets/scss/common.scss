@@ -1,0 +1,31 @@
+.slick-slider {
+  .slick-dots {
+    @include flexCenter;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    list-style-type: none;
+    z-index: 100;
+
+    .slick-active {
+      background: $white;
+      opacity: 1;
+    }
+
+    li {
+      width: 8px;
+      height: 8px;
+      background: $black;
+      border-radius: 50%;
+      opacity: .5;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+
+    button {
+      display: none;
+    }
+  }
+}

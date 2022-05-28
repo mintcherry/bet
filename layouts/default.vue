@@ -35,20 +35,22 @@ export default {
 .default-wrapper__content {
   display: flex;
   width: 90%;
-  margin: 0 auto;
+  margin: 20px auto 0;
+}
+
+.default-wrapper__main {
+  margin: 0 20px;
 }
 
 .default-wrapper__aside-left {
   width: 20%;
   height: 500px;
   background: red;
-  margin-right: 10px;
 }
 
 .default-wrapper__aside-right {
   width: 20%;
   height: 500px;
   background: green;
-  margin-left: 10px;
 }
 </style>
