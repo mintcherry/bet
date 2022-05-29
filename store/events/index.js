@@ -1,6 +1,6 @@
 import { getEvents } from '@/requestManager/events';
 
-import { API_STATUS, API_MODE } from '@/utils/apiParams';
+import { API_STATUS } from '@/utils/apiParams';
 
 export const state = () => ({
   events: [],
@@ -15,11 +15,16 @@ export const mutations = {
 }
 
 export const actions = {
-  async fetchEvents({ commit }, sportId = 0, tournamentId = 0, apiMode = API_MODE.LIVE, count = 350) {
+  async fetchEvents({ commit }, params) {
     try {
-      const response = await getEvents(sportId, tournamentId, count, apiMode);
+      const response = await getEvents(
+        params.SPORT_ID,
+        params.TOURNAMENT_ID,
+        params.API_MODE,
+        params.COUNT,
+      );
 
-      if (response.status === API_STATUS.SUCCESS) {
+      if (response.data.status === API_STATUS.SUCCESS) {
         commit('SET_EVENTS', response.data.body);
       }
 
@@ -28,6 +33,5 @@ export const actions = {
       (e) {
       console.error(e);
     }
-  }
-  ,
+  },
 }

@@ -2,6 +2,8 @@
   <div class="default-layout">
     <TheHeader />
 
+    <TheNavigation />
+
     <div class="default-wrapper__content">
       <aside class="default-wrapper__aside-left">
 
@@ -18,11 +20,13 @@
 
 <script>
 import TheHeader from '@/components/System/Header/TheHeader';
+import TheNavigation from '@/components/System/Navigation/TheNavigation';
 
 export default {
   name: 'DefaultLayout',
   components: {
     TheHeader,
+    TheNavigation,
   },
 }
 </script>

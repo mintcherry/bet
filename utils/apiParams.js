@@ -9,7 +9,8 @@ export const API_MODE = {
 }
 
 export const API_STATUS = {
-  SUCCESS: 200,
+  SUCCESS: 1,
+  REJECT: 0,
   NOT_FOUND: 404,
 }
 
