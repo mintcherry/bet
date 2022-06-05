@@ -10,27 +10,27 @@
     <div
         :class="[
             'event-list-item__column',
-            { 'selected-bet': selected === 'П1' },
+            { 'selected-bet': selected === RATIO_LABEL.P1 },
         ]"
-        @click="selectCoupon(ratioFirstTeam, 'П1')"
+        @click="selectCoupon(ratioFirstTeam, RATIO_LABEL.P1)"
     >
       <span>{{ ratioFirstTeam }}</span>
     </div>
     <div
         :class="[
             'event-list-item__column',
-            { 'selected-bet': selected === 'X' },
+            { 'selected-bet': selected === RATIO_LABEL.X },
         ]"
-        @click="selectCoupon(ratioDraw, 'X')"
+        @click="selectCoupon(ratioDraw, RATIO_LABEL.X)"
     >
       <span>{{ ratioDraw }}</span>
     </div>
     <div
         :class="[
             'event-list-item__column',
-            { 'selected-bet': selected === 'П2' },
+            { 'selected-bet': selected === RATIO_LABEL.P2 },
         ]"
-        @click="selectCoupon(ratioSecondTeam, 'П2')"
+        @click="selectCoupon(ratioSecondTeam, RATIO_LABEL.P2)"
     >
       <span>{{ ratioSecondTeam }}</span>
     </div>
@@ -39,6 +39,12 @@
 
 <script>
 import { mapMutations } from 'vuex';
+
+const RATIO_LABEL = {
+  P1: 'П1',
+  X: 'X',
+  P2: 'П2',
+}
 
 export default {
   name: 'EventListItem',
@@ -50,6 +56,7 @@ export default {
     },
   },
   data: () => ({
+    RATIO_LABEL,
     selected: String,
   }),
   computed: {

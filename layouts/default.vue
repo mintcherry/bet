@@ -38,7 +38,6 @@ export default {
   async created() {
     await this.fetchSports(API_MODE.LIVE);
     this.SET_ALL_SELECTED_COUPON(this.$cookies.get('coupons'));
-    console.log(this.$cookies.get('coupons'));
   },
   
   methods: {

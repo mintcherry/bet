@@ -28,6 +28,8 @@ export const mutations = {
     if (coupons.length) {
       state.coupons = coupons;
     }
+
+    return state.coupons;
   },
   REMOVE_COUPON(state, couponId) {
     let removeIndex = state.coupons.findIndex(loopCoupon => loopCoupon.id === couponId);
