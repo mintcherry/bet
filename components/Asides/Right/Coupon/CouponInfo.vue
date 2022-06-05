@@ -3,20 +3,16 @@
     <div class="coupon-info__row">
       <div class="coupon-info__label">Коэфф:</div>
       
-      <VInput
-          v-model="ratio"
-          isDisabled
-          class="coupon-info__value"
-      />
+      <div class="coupon-info__value">
+        {{ totalRatio }}
+      </div>
     </div>
     <div class="coupon-info__row">
       <div class="coupon-info__label">Выигрыш:</div>
       
-      <VInput
-          v-model="winning"
-          isDisabled
-          class="coupon-info__value"
-      />
+      <div class="coupon-info__value">
+        {{ totalWinning }}
+      </div>
     </div>
     <div class="coupon-info__row">
       <div class="coupon-info__label">Сумма:</div>
@@ -31,6 +27,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 import VInput from '@/components/UI/VInput';
 
 export default {
@@ -40,10 +38,28 @@ export default {
   },
   
   data: () => ({
-    ratio: null,
-    winning: null,
     amount: 100,
   }),
+  computed: {
+    ...mapState('coupons', [
+      'coupons',
+    ]),
+    
+    totalRatio() {
+      let totalRatio = 0.00;
+      
+      this.coupons.forEach(coupon => {
+        totalRatio += coupon.bet;
+      });
+      
+      return totalRatio.toFixed(2);
+    },
+    totalWinning() {
+      return this.totalRatio !== '0.00'
+          ? this.amount * this.totalRatio
+          : '0.00';
+    },
+  },
 }
 </script>
 
@@ -62,10 +78,12 @@ export default {
   margin-bottom: 10px;
   
   &:nth-of-type(3) {
-    .coupon-info__value {
+    .v-input.coupon-info__value {
       width: 100px;
+      padding: 0;
       
       ::v-deep .v-input__input {
+        width: 100%;
         text-align: center;
         font-weight: bold;
       }
@@ -78,6 +96,15 @@ export default {
 }
 
 .coupon-info__value {
-  width: 40px;
+  @include flexCenter;
+  @include font(14px, 18px, 400, $white);
+  min-width: 30px;
+  max-width: 120px;
+  height: 30px;
+  padding: 5px 10px;
+  background: #0C3270;
+  border-radius: 8px;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 </style>

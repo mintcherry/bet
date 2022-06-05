@@ -4,6 +4,7 @@
       <div class="coupon-item__title">
         {{ coupon.opponents }}
       </div>
+      
       <VIcon
           name="CloseIcon"
           :width="15"

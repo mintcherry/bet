@@ -64,6 +64,7 @@ export default {
   position: relative;
   outline: none;
   transition: all .2s ease-in-out;
+  box-sizing: border-box;
   z-index: 5;
   
   &::-moz-placeholder {

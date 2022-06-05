@@ -1,18 +1,18 @@
 <template>
   <div class="slider-container">
-
+    
     <Slick
-      ref="slick"
-      :options="slickOptions"
-      class="slider-container__slick"
+        ref="slick"
+        :options="slickOptions"
+        class="slider-container__slick"
     >
       <SliderSlide
-        v-for="(slide, index) of sliderImages"
-        :key="index"
-        :slide="slide"
+          v-for="(slide, index) of sliderImages"
+          :key="index"
+          :slide="slide"
       />
     </Slick>
-
+  
   </div>
 </template>
 
@@ -31,13 +31,14 @@ export default {
     VButton,
     SliderSlide,
   },
-
+  
   data: () => ({
     slickOptions: {
       slidesToShow: 1,
       slidesToScroll: 1,
       arrows: false,
       dots: true,
+      autoplay: true,
       speed: 1000,
       infinite: true,
       draggable: false,
@@ -48,7 +49,7 @@ export default {
       require('assets/img/index-slider/slide3.jpg'),
     ],
   }),
-
+  
   methods: {
     next() {
       this.$refs.slick.next();
@@ -57,7 +58,7 @@ export default {
       this.$refs.slick.prev();
     },
   },
-
+  
 }
 </script>
 
