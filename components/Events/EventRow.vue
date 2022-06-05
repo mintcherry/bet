@@ -4,21 +4,21 @@
       <div class="event-row__name">
         {{ event.tournament_name }}
       </div>
-
+      
       <ArrowDown
-        :class="[
+          :class="[
           'event-row__arrow-icon',
           { 'active': isOpened }
         ]"
       />
     </div>
-
+    
     <VueSlideToggle :open="isOpened" :duration="500">
       <div class="event-row__body">
         <EventListHeader />
-
+        
         <EventList
-          :events="availableEvents"
+            :events="availableEvents"
         />
       </div>
     </VueSlideToggle>
@@ -31,7 +31,7 @@ import { VueSlideToggle } from 'vue-slide-toggle'
 import EventListHeader from '@/components/Events/List/EventListHeader';
 import EventList from '@/components/Events/List/EventList';
 
-import ArrowDown from 'assets/svg/arrow-down.svg'
+import ArrowDown from 'assets/svg/arrow-down.svg?inline';
 
 export default {
   name: 'EventRow',
@@ -41,7 +41,7 @@ export default {
     EventListHeader,
     ArrowDown,
   },
-
+  
   props: {
     event: Object,
   },
@@ -52,7 +52,7 @@ export default {
     availableEvents() {
       return this.event.events_list;
     },
-
+    
     isShownRow() {
       return this.availableEvents.every(game => game.game_oc_list.length > 3);
     },
@@ -82,7 +82,7 @@ export default {
   width: 25px;
   height: 25px;
   transition: 500ms;
-
+  
   &.active {
     transform: rotate(180deg);
   }

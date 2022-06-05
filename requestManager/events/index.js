@@ -5,6 +5,7 @@ import { API_TOKEN, API_LIST_TYPE } from '@/utils/apiParams';
 const GET_EVENTS = '/events/${sportId}/${tournamentId}/${listType}/${count}/${apiMode}/ru';
 
 export const getEvents = (sportId, tournamentId, apiMode, count) => {
+  // debugger
   return requestManager.get(GET_EVENTS
       .replace('${sportId}', sportId)
       .replace('${tournamentId}', tournamentId)

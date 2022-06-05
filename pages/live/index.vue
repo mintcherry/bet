@@ -17,7 +17,7 @@ const DEFAULT_REQUEST_PARAMS = {
   SPORT_ID: 0,
   TOURNAMENT_ID: 0,
   API_MODE: API_MODE.LIVE,
-  COUNT: 350,
+  COUNT: 500,
 }
 
 export default {
@@ -27,7 +27,7 @@ export default {
     EventsContainer,
   },
 
-  async fetch({store}) {
+  async fetch({ store }) {
     await store.dispatch('events/fetchEvents', DEFAULT_REQUEST_PARAMS);
   },
   computed: {

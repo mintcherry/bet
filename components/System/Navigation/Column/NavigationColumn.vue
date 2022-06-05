@@ -1,6 +1,10 @@
 <template>
   <div class="navigation-column">
-    <nuxt-link :to="navigation.url" class="navigation-column__link">
+    <nuxt-link
+      :to="navigation.url"
+      class="navigation-column__link"
+      active-class="active"
+    >
       {{ navigation.label }}
     </nuxt-link>
   </div>
@@ -23,6 +27,10 @@ export default {
   transition: 250ms;
 
   &:hover {
+    background: $bard;
+  }
+
+  &.active {
     background: $bard;
   }
 }

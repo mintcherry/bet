@@ -14,4 +14,11 @@ export const API_STATUS = {
   NOT_FOUND: 404,
 }
 
-export const API_TOKEN = 'Testkey24052022c51e57240f2ef2ede0ddda';
+export const DATA_TYPE = {
+  SPORT: 'sports',
+  TOURNAMENTS: 'tournaments',
+  COUNTRIES: 'countries',
+  EVENTS: 'events',
+}
+
+export const API_TOKEN = 'dev25052022Tyhg89Ul9864';

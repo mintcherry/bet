@@ -1,32 +1,48 @@
 <template>
   <div class="default-layout">
     <TheHeader />
-
+    
     <TheNavigation />
-
+    
     <div class="default-wrapper__content">
-      <aside class="default-wrapper__aside-left">
-
-      </aside>
+      <LeftAside />
+      
       <main class="default-wrapper__main">
         <nuxt />
       </main>
-      <aside class="default-wrapper__aside-right">
-
-      </aside>
+      
+      <RightAside />
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import TheHeader from '@/components/System/Header/TheHeader';
 import TheNavigation from '@/components/System/Navigation/TheNavigation';
+import LeftAside from '@/components/Asides/Left/LeftAside';
+import RightAside from '@/components/Asides/Right/RightAside';
+
+import { API_MODE } from '@/utils/apiParams';
 
 export default {
   name: 'DefaultLayout',
   components: {
     TheHeader,
     TheNavigation,
+    LeftAside,
+    RightAside,
+  },
+  
+  async created() {
+    await this.fetchSports(API_MODE.LIVE);
+  },
+  
+  methods: {
+    ...mapActions('sports', [
+      'fetchSports',
+    ]),
   },
 }
 </script>
@@ -38,23 +54,12 @@ export default {
 
 .default-wrapper__content {
   display: flex;
+  align-items: flex-start;
   width: 90%;
   margin: 20px auto 0;
 }
 
 .default-wrapper__main {
   margin: 0 20px;
-}
-
-.default-wrapper__aside-left {
-  width: 20%;
-  height: 500px;
-  background: red;
-}
-
-.default-wrapper__aside-right {
-  width: 20%;
-  height: 500px;
-  background: green;
 }
 </style>
