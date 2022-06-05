@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapMutations, mapActions } from 'vuex';
 
 import TheHeader from '@/components/System/Header/TheHeader';
 import TheNavigation from '@/components/System/Navigation/TheNavigation';
@@ -37,9 +37,14 @@ export default {
   
   async created() {
     await this.fetchSports(API_MODE.LIVE);
+    this.SET_ALL_SELECTED_COUPON(this.$cookies.get('coupons'));
+    console.log(this.$cookies.get('coupons'));
   },
   
   methods: {
+    ...mapMutations('coupons', [
+      'SET_ALL_SELECTED_COUPON',
+    ]),
     ...mapActions('sports', [
       'fetchSports',
     ]),
@@ -53,7 +58,7 @@ export default {
 }
 
 .default-wrapper__content {
-  display: flex;
+  @include flexBetween;
   align-items: flex-start;
   width: 90%;
   margin: 20px auto 0;

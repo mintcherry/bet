@@ -9,22 +9,23 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/axios": "5.13.6",
+    "@nuxtjs/dayjs": "1.4.1",
+    "@nuxtjs/dotenv": "1.4.1",
     "@nuxtjs/style-resources": "1.2.1",
     "@nuxtjs/svg": "0.3.0",
-    "@nuxtjs/dayjs": "1.4.1",
-    "vue-ui-preloader": "^1.2.1",
-    "jquery": "3.6.0",
+    "cookie-universal-nuxt": "2.2.1",
     "core-js": "3.19.3",
+    "jquery": "3.6.0",
     "nuxt": "2.15.8",
-    "vue": "2.6.14",
-    "webpack": "4.46.0",
     "v-click-outside": "3.1.2",
+    "vue": "2.6.14",
     "vue-js-modal": "2.0.1",
     "vue-slick": "1.1.16",
     "vue-slide-toggle": "1.1.1",
-    "vuex": "3.6.2"
+    "vue-ui-preloader": "^1.2.1",
+    "vuex": "3.6.2",
+    "webpack": "4.46.0"
   },
   "devDependencies": {
     "node-sass": "6.0.1",

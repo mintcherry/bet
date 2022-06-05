@@ -11,16 +11,31 @@ export const mutations = {
 
     if (!isExistCouponByGame) {
       state.coupons.push(coupon);
+      this.$cookies.set('coupons', state.coupons, {
+        maxAge: 86400,
+      });
     } else
       if (isExistCouponByGame && !isExistCouponByBet) {
         let removeIndex = state.coupons.findIndex(loopCoupon => loopCoupon.id === coupon.id);
         state.coupons.splice(removeIndex, 1);
         state.coupons.push(coupon);
+        this.$cookies.set('coupons', state.coupons, {
+          maxAge: 86400,
+        });
       }
+  },
+  SET_ALL_SELECTED_COUPON(state, coupons) {
+    if (coupons.length) {
+      state.coupons = coupons;
+    }
   },
   REMOVE_COUPON(state, couponId) {
     let removeIndex = state.coupons.findIndex(loopCoupon => loopCoupon.id === couponId);
     state.coupons.splice(removeIndex, 1);
+    this.$cookies.remove('coupons');
+    this.$cookies.set('coupons', state.coupons, {
+      maxAge: 86400,
+    });
   },
 };
 

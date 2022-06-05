@@ -51,6 +51,7 @@ export default {
     '@nuxtjs/dayjs',
     '@nuxtjs/svg',
     '@nuxtjs/style-resources',
+    'cookie-universal-nuxt',
   ],
 
   dayjs: {
