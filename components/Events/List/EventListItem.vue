@@ -8,19 +8,28 @@
       {{ opponents }}
     </div>
     <div
-        class="event-list-item__column"
+        :class="[
+            'event-list-item__column',
+            { 'selected-bet': selected === 'П1' },
+        ]"
         @click="selectCoupon(ratioFirstTeam, 'П1')"
     >
       <span>{{ ratioFirstTeam }}</span>
     </div>
     <div
-        class="event-list-item__column"
+        :class="[
+            'event-list-item__column',
+            { 'selected-bet': selected === 'X' },
+        ]"
         @click="selectCoupon(ratioDraw, 'X')"
     >
       <span>{{ ratioDraw }}</span>
     </div>
     <div
-        class="event-list-item__column"
+        :class="[
+            'event-list-item__column',
+            { 'selected-bet': selected === 'П2' },
+        ]"
         @click="selectCoupon(ratioSecondTeam, 'П2')"
     >
       <span>{{ ratioSecondTeam }}</span>
@@ -40,6 +49,9 @@ export default {
       required: true,
     },
   },
+  data: () => ({
+    selected: String,
+  }),
   computed: {
     gameDayStart() {
       return this.$dayjs.unix(this.game.game_start).locale('ru').format('DD');
@@ -81,6 +93,8 @@ export default {
         bet: bet,
         type: type,
       };
+      
+      this.selected = type;
       
       this.SET_COUPON(selectedBet);
     },
@@ -153,6 +167,17 @@ export default {
       &:hover {
         color: $white;
         background: $bard;
+      }
+    }
+  }
+  
+  &.selected-bet {
+    &:nth-of-type(3),
+    &:nth-of-type(4),
+    &:nth-of-type(5) {
+      span {
+        background: $bard;
+        color: $white;
       }
     }
   }
