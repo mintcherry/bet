@@ -19,6 +19,7 @@
       
       <VInput
           v-model="amount"
+          :isDisabled="amountInputIsDisabled"
           type="number"
           class="coupon-info__value"
       />
@@ -55,9 +56,16 @@ export default {
       return totalRatio.toFixed(2);
     },
     totalWinning() {
+      if (this.amount.length === 0) {
+        return '0.00';
+      }
+      
       return this.totalRatio !== '0.00'
           ? this.amount * this.totalRatio
           : '0.00';
+    },
+    amountInputIsDisabled() {
+      return Boolean(this.coupons.length);
     },
   },
 }

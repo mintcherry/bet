@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .coupon-container__empty {
-  @include font(16px, 20px, 400, $white);
+  @include font(14px, 20px, 400, $white);
   font-family: 'Calibri', sans-serif;
   text-align: center;
   opacity: .5;
