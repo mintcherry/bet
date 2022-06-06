@@ -5,6 +5,7 @@
 <script>
 export default {
   name: 'GamePage',
+  layout: 'EventLayout',
 }
 </script>
 

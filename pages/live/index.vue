@@ -1,6 +1,5 @@
 <template>
   <div class="live-page">
-    <SliderContainer />
     <EventsContainer :events="events" />
   </div>
 </template>
@@ -8,7 +7,6 @@
 <script>
 import { mapState } from 'vuex';
 
-import SliderContainer from '@/components/System/Slider/SliderContainer';
 import EventsContainer from '@/components/Events/EventsContainer';
 
 import { API_MODE } from '@/utils/apiParams';
@@ -22,8 +20,8 @@ const DEFAULT_REQUEST_PARAMS = {
 
 export default {
   name: 'LivePage',
+  layout: 'EventLayout',
   components: {
-    SliderContainer,
     EventsContainer,
   },
 

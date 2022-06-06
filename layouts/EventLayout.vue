@@ -1,13 +1,15 @@
 <template>
-  <div class="default-layout">
+  <div class="event-layout">
     <TheHeader />
     
     <TheNavigation />
     
-    <div class="default-wrapper__content">
+    <div class="event-layout__content">
       <LeftAside />
       
-      <main class="default-wrapper__main">
+      <main class="event-layout__main">
+        <SliderContainer />
+        
         <nuxt />
       </main>
       
@@ -19,6 +21,8 @@
 <script>
 import { mapMutations, mapActions } from 'vuex';
 
+import SliderContainer from '@/components/System/Slider/SliderContainer';
+
 import TheHeader from '@/components/System/Header/TheHeader';
 import TheNavigation from '@/components/System/Navigation/TheNavigation';
 import LeftAside from '@/components/Asides/Left/LeftAside';
@@ -27,8 +31,9 @@ import RightAside from '@/components/Asides/Right/RightAside';
 import { API_MODE } from '@/utils/apiParams';
 
 export default {
-  name: 'DefaultLayout',
+  name: 'EventLayout',
   components: {
+    SliderContainer,
     TheHeader,
     TheNavigation,
     LeftAside,
@@ -52,18 +57,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.default-layout {
+.event-layout {
   width: 100%;
 }
 
-.default-wrapper__content {
+.event-layout__content {
   @include flexBetween;
   align-items: flex-start;
   width: 90%;
   margin: 20px auto 0;
 }
 
-.default-wrapper__main {
+.event-layout__main {
   margin: 0 20px;
 }
 </style>

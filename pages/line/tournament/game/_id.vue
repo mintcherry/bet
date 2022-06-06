@@ -1,15 +1,14 @@
 <template>
-  <div class="tournament-page"></div>
+  <div class="game-page"></div>
 </template>
 
 <script>
 export default {
-  name: 'TournamentPage',
+  name: 'GamePage',
+  layout: 'EventLayout',
 }
 </script>
 
 <style lang="scss" scoped>
-.tournament-page {
 
-}
 </style>

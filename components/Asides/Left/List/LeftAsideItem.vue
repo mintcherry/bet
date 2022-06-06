@@ -1,6 +1,12 @@
 <template>
-  <div
+  <nuxt-link
       v-if="imageOfSport"
+      :to="{
+        path: link,
+        query: {
+          id: sport.id,
+        }
+      }"
       class="left-aside-item"
   >
     <img
@@ -12,11 +18,13 @@
     <span class="left-aside-item__name">
       {{ sport.name }}
     </span>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
 import { SPORTS } from '@/utils/sports';
+// import { DATA_TYPE } from '@/utils/apiParams';
+// import { API_MODE } from '@/utils/apiParams';
 
 export default {
   name: 'LeftAsideItem',
@@ -49,7 +57,19 @@ export default {
           return require('@/assets/img/sports/baseball.png');
       }
     },
+    
+    link() {
+      let routeName = this.$route.name;
+      let sportName = this.sport.name_en.toLowerCase().replace(' ', '');
+      
+      return routeName + `/${sportName}`;
+      // return 'tournament/' + this.sport.id + '/0' + `/${routeName}` + '/ru';
+    },
   },
+  
+  mounted() {
+    console.log(this.$route);
+  }
 }
 </script>
 
