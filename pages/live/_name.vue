@@ -28,8 +28,6 @@ export default {
         ? requestParams.mode = API_MODE.LIVE
         : requestParams.mode = API_MODE.LINE
     
-    console.log(requestParams, 'req')
-    
     await store.dispatch('events/fetchEventsBySport', requestParams);
   },
   data: () => ({
