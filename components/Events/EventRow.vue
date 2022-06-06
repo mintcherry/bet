@@ -50,9 +50,6 @@ export default {
   data: () => ({
     isOpened: true,
   }),
-  mounted() {
-    console.log(this.$route)
-  },
   computed: {
     tournamentLink() {
       let sport = this.availableEvents[0].sport_name_en.toLowerCase();
