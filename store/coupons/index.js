@@ -25,6 +25,10 @@ export const mutations = {
       }
   },
   SET_ALL_SELECTED_COUPON(state, coupons) {
+    if (coupons === undefined) {
+      return;
+    }
+
     if (coupons.length) {
       state.coupons = coupons;
     }
