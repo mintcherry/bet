@@ -24,8 +24,7 @@ export const actions = {
       }
 
       return response;
-    } catch
-      (e) {
+    } catch (e) {
       console.error(e);
     }
   },

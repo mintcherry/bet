@@ -1,30 +1,33 @@
 <template>
-  <nuxt-link
-      v-if="imageOfSport"
-      :to="{
-        path: link,
-        query: {
-          id: sport.id,
-        }
-      }"
-      class="left-aside-item"
-  >
-    <img
-        :src="imageOfSport"
-        :alt="null"
-        class="left-aside-item__img"
-    />
-    
-    <span class="left-aside-item__name">
+  <div class="left-aside-item">
+    <nuxt-link
+        v-if="imageOfSport"
+        :to="{
+          path: link,
+          query: {
+            id: sport.id,
+          }
+        }"
+        class="left-aside-item__link"
+    >
+      <img
+          :src="imageOfSport"
+          :alt="null"
+          class="left-aside-item__img"
+      />
+      
+      <span class="left-aside-item__name">
       {{ sport.name }}
     </span>
-  </nuxt-link>
+    </nuxt-link>
+  </div>
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 import { SPORTS } from '@/utils/sports';
-// import { DATA_TYPE } from '@/utils/apiParams';
-// import { API_MODE } from '@/utils/apiParams';
+import { API_MODE } from '@/utils/apiParams';
 
 export default {
   name: 'LeftAsideItem',
@@ -32,6 +35,9 @@ export default {
   props: {
     sport: Object,
   },
+  data: () => ({
+    routeName: '',
+  }),
   computed: {
     imageOfSport() {
       switch (this.sport.name) {
@@ -59,25 +65,25 @@ export default {
     },
     
     link() {
-      let routeName = this.$route.name;
       let sportName = this.sport.name_en.toLowerCase().replace(' ', '');
       
-      return routeName + `/${sportName}`;
-      // return 'tournament/' + this.sport.id + '/0' + `/${routeName}` + '/ru';
+      if (this.$route.name.includes(API_MODE.LINE)) {
+        this.routeName = API_MODE.LINE;
+      } else
+        if (this.$route.name.includes(API_MODE.LIVE)) {
+          this.routeName = API_MODE.LIVE;
+        } else {
+          this.routeName = API_MODE.LINE;
+        }
+      
+      return `/${this.routeName}` + `/${sportName}`;
     },
   },
-  
-  mounted() {
-    // console.log(this.$route);
-  }
 }
 </script>
 
 <style lang="scss" scoped>
 .left-aside-item {
-  display: flex;
-  align-items: center;
-  padding: 7px 5px;
   cursor: pointer;
   
   &:hover {
@@ -85,6 +91,13 @@ export default {
       color: $bard;
     }
   }
+}
+
+.left-aside-item__link {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 7px 5px;
 }
 
 .left-aside-item__name {

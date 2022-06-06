@@ -1,10 +1,15 @@
 <template>
   <div class="events-container">
-    <EventRow
-      v-for="event of events"
-      :key="event.tournament_id"
-      :event="event"
-    />
+    <template v-if="events.length">
+      <EventRow
+          v-for="event of events"
+          :key="event.tournament_id"
+          :event="event"
+      />
+    </template>
+    <div class="events-container__empty">
+      Ставки не принмимаются
+    </div>
   </div>
 </template>
 
@@ -16,7 +21,7 @@ export default {
   components: {
     EventRow,
   },
-
+  
   props: {
     events: Array,
   },
@@ -28,5 +33,11 @@ export default {
   max-width: 890px;
   width: 100%;
   margin: 100px auto 0;
+}
+
+.events-container__empty {
+  @include flexCenter;
+  @include font(26px, 32px, 600, $black);
+  font-family: 'Calibri', sans-serif;
 }
 </style>

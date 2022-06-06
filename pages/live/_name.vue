@@ -1,0 +1,51 @@
+<template>
+  <div class="sport-page">
+    <EventsContainer :events="eventsBySport" />
+  </div>
+</template>
+
+<script>
+import { mapState, mapGetters } from 'vuex';
+
+import EventsContainer from '@/components/Events/EventsContainer';
+
+import { API_MODE } from '@/utils/apiParams';
+
+export default {
+  name: 'SportPage',
+  layout: 'EventLayout',
+  components: {
+    EventsContainer,
+  },
+  
+  async asyncData({ store, route }) {
+    let requestParams = {
+      mode: null,
+      sportId: route.query.id,
+    }
+    
+    route.name.includes(API_MODE.LIVE)
+        ? requestParams.mode = API_MODE.LIVE
+        : requestParams.mode = API_MODE.LINE
+    
+    console.log(requestParams, 'req')
+    
+    await store.dispatch('events/fetchEventsBySport', requestParams);
+  },
+  data: () => ({
+    requestParams: {
+      sportId: '',
+      apiMode: '',
+    },
+  }),
+  computed: {
+    ...mapState('events', [
+      'eventsBySport',
+    ]),
+  },
+}
+</script>
+
+<style lang="scss" scoped>
+
+</style>
