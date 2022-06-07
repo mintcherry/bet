@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex';
+import { mapState } from 'vuex';
 
 import EventsContainer from '@/components/Events/EventsContainer';
 
@@ -30,12 +30,6 @@ export default {
     
     await store.dispatch('events/fetchEventsBySport', requestParams);
   },
-  data: () => ({
-    requestParams: {
-      sportId: '',
-      apiMode: '',
-    },
-  }),
   computed: {
     ...mapState('events', [
       'eventsBySport',
@@ -43,7 +37,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

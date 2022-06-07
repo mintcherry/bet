@@ -21,4 +21,5 @@ export const DATA_TYPE = {
   EVENTS: 'events',
 }
 
-export const API_TOKEN = 'dev25052022Tyhg89Ul9864';
+export const API_TOKEN = 'dev25052022Tyhg89UTH564KsOi';
+// export const API_TOKEN = 'Po34Fb89DD98GD40JS32KL53GF';

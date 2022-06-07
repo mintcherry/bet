@@ -5,7 +5,17 @@
       <span>{{ gameTimeStart }}</span>
     </div>
     <div class="event-list-item__column">
-      {{ opponents }}
+      <nuxt-link
+          :to="{
+              path: gameLink,
+              query: {
+                gameId: getGameId,
+              },
+            }"
+          class="event-list-item__link"
+      >
+        {{ opponents }}
+      </nuxt-link>
     </div>
     <div
         :class="[
@@ -39,6 +49,7 @@
 
 <script>
 import { mapMutations } from 'vuex';
+import { API_MODE } from "@/utils/apiParams";
 
 const RATIO_LABEL = {
   P1: 'П1',
@@ -85,6 +96,27 @@ export default {
     },
     ratioSecondTeam() {
       return this.game.game_oc_list[2].oc_rate;
+    },
+    
+    gameLink() {
+      let routeName = '';
+      let sport = this.game.sport_name_en.toLowerCase();
+      let tournament = this.game.tournament_name_en.replace(/\s/g, '');
+      let game = this.game.opp_1_name_en + this.game.opp_2_name_en;
+      
+      if (this.$route.name.includes(API_MODE.LINE)) {
+        routeName = API_MODE.LINE;
+      } else
+        if (this.$route.name.includes(API_MODE.LIVE)) {
+          routeName = API_MODE.LIVE;
+        } else {
+          routeName = API_MODE.LINE;
+        }
+      
+      return '/' + routeName + '/' + sport + '/' + tournament + '/' + game;
+    },
+    getGameId() {
+      return this.game.game_id;
     },
   },
   
@@ -154,6 +186,29 @@ export default {
     align-items: center;
     width: 660px;
     margin: 0 20px 0 10px;
+    
+    .event-list-item__link {
+      display: block;
+      position: relative;
+      
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: $black;
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        transition: 250ms;
+      }
+      
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
   }
   
   &:nth-of-type(3),

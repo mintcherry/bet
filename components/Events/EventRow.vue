@@ -1,7 +1,16 @@
 <template>
   <div v-if="isShownRow" class="event-row">
     <div class="event-row__panel" @click="isOpened = !isOpened">
-      <nuxt-link :to="tournamentLink" class="event-row__name">
+      <nuxt-link
+          :to="{
+            path: tournamentLink,
+            query: {
+              sportId: getSportId,
+              tournamentId: getTournamentId,
+            }
+          }"
+          class="event-row__name"
+      >
         {{ event.tournament_name }}
       </nuxt-link>
       
@@ -27,13 +36,13 @@
 
 <script>
 import { VueSlideToggle } from 'vue-slide-toggle'
-
 import EventListHeader from '@/components/Events/List/EventListHeader';
+
 import EventList from '@/components/Events/List/EventList';
 
 import ArrowDown from 'assets/svg/arrow-down.svg?inline';
 
-import { API_MODE } from "@/utils/apiParams";
+import { API_MODE } from '@/utils/apiParams';
 
 export default {
   name: 'EventRow',
@@ -53,7 +62,7 @@ export default {
   computed: {
     tournamentLink() {
       let sport = this.availableEvents[0].sport_name_en.toLowerCase();
-      let sportId = this.availableEvents[0].sport_id;
+      let tournament = this.availableEvents[0].tournament_name_en.replace(/ /g, '');
       let routeName = '';
       
       if (this.$route.name.includes(API_MODE.LINE)) {
@@ -65,10 +74,17 @@ export default {
           routeName = API_MODE.LINE;
         }
       
-      return '/' + routeName + '/' + sport + `?id=${sportId}` + '/' + this.event.tournament_name.replace(/ /g, '');
+      return '/' + routeName + '/' + sport + '/' + tournament;
     },
     availableEvents() {
       return this.event.events_list;
+    },
+    
+    getSportId() {
+      return this.event.events_list[0].sport_id;
+    },
+    getTournamentId() {
+      return this.event.tournament_id;
     },
     
     isShownRow() {

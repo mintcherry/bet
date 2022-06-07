@@ -5,6 +5,7 @@ import { API_STATUS } from '@/utils/apiParams';
 export const state = () => ({
   events: [],
   eventsBySport: [],
+  eventsByTournament: [],
 })
 
 export const getters = {}
@@ -15,6 +16,9 @@ export const mutations = {
   },
   SET_EVENTS_BY_SPORT(state, events) {
     state.eventsBySport = events;
+  },
+  SET_EVENTS_BY_TOURNAMENT(state, tournament) {
+    state.eventsByTournament = tournament;
   },
 }
 
@@ -38,11 +42,11 @@ export const actions = {
       console.error(e);
     }
   },
-  async fetchEventsBySport({ commit }, requestParams) {
+  async fetchEventsBySport({ commit }, params) {
     const REQUEST_PARAMS = {
-      sportId: requestParams.sportId,
+      sportId: params.sportId,
       count: 3000,
-      apiMode: requestParams.mode,
+      apiMode: params.mode,
     }
 
     try {
@@ -50,6 +54,25 @@ export const actions = {
 
       if (response.data.status === API_STATUS.SUCCESS) {
         commit('SET_EVENTS_BY_SPORT', response.data.body);
+      }
+
+      return response;
+    } catch
+      (e) {
+      console.error(e);
+    }
+  },
+  async fetchEventsByTournament({ commit }, params) {
+    try {
+      const response = await getEvents(
+        params.sportId,
+        params.tournamentId,
+        params.mode,
+        3000,
+      );
+
+      if (response.data.status === API_STATUS.SUCCESS) {
+        commit('SET_EVENTS_BY_TOURNAMENT', response.data.body);
       }
 
       return response;

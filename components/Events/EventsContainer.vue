@@ -7,7 +7,7 @@
           :event="event"
       />
     </template>
-    <div class="events-container__empty">
+    <div v-else class="events-container__empty">
       Ставки не принмимаются
     </div>
   </div>

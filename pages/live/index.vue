@@ -15,7 +15,7 @@ const DEFAULT_REQUEST_PARAMS = {
   SPORT_ID: 0,
   TOURNAMENT_ID: 0,
   API_MODE: API_MODE.LIVE,
-  COUNT: 3000,
+  COUNT: 20,
 }
 
 export default {
