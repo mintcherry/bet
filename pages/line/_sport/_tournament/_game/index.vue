@@ -1,6 +1,11 @@
 <template>
   <div v-if="gameIsAvailable" class="game-page">
-  
+    <Information
+      :opponents="opponents"
+      :date="date"
+      :tournament="tournament"
+    />
+    
   </div>
   <div v-else class="game-page__empty">
     Событие не доступно
@@ -8,11 +13,16 @@
 </template>
 
 <script>
+import Information from '@/components/Game/Information';
+
 import { API_MODE, API_TOKEN } from '@/utils/apiParams';
 
 export default {
   name: 'GamePage',
-  layout: 'EventLayout',
+  layout: 'GameLayout',
+  components: {
+    Information,
+  },
   
   async asyncData({ $axios, route }) {
     let params = {
@@ -42,7 +52,16 @@ export default {
     gameIsAvailable() {
       return this.event !== undefined;
     },
-  }
+    opponents() {
+      return this.event.opp_1_name + ' - ' + this.event.opp_2_name;
+    },
+    date() {
+      return this.event.game_start;
+    },
+    tournament() {
+      return this.event.tournament_name;
+    },
+  },
 }
 </script>
 
