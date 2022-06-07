@@ -59,12 +59,14 @@ export default {
 <style lang="scss" scoped>
 .event-layout {
   width: 100%;
+  margin: 0 auto;
 }
 
 .event-layout__content {
   @include flexBetween;
   align-items: flex-start;
-  width: 90%;
+  max-width: 1400px;
+  width: 100%;
   margin: 20px auto 0;
 }
 

@@ -2,7 +2,7 @@
   <header class="the-header">
     <div class="the-header__wrapper">
       <HeaderLogo />
-
+      
       <HeaderControl />
     </div>
   </header>
@@ -32,7 +32,7 @@ export default {
 .the-header__wrapper {
   @include flexBetween;
   align-items: center;
-  max-width: 1920px;
+  max-width: 1400px;
   width: 90%;
   margin: 0 auto;
 }

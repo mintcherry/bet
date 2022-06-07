@@ -71,8 +71,8 @@ export default {
 .the-navigation__wrapper {
   display: flex;
   align-items: center;
-  max-width: 1920px;
-  width: 90%;
+  max-width: 1400px;
+  width: 100%;
   margin: 0 auto;
   height: 50px;
 }
