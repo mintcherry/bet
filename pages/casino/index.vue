@@ -5,6 +5,12 @@
 <script>
 export default {
   name: 'CasinoPage',
+  
+  head() {
+    return {
+      title: 'Казино'
+    }
+  },
 }
 </script>
 

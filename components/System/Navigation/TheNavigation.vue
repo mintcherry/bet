@@ -40,10 +40,10 @@ export default {
           label: 'Лайв',
           url: '/live',
         },
-        // {
-        //   label: 'Казино',
-        //   url: '/casino',
-        // },
+        {
+          label: 'Казино',
+          url: '/casino',
+        },
         {
           label: 'Результаты',
           url: '/results',

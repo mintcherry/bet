@@ -33,5 +33,11 @@ export default {
       'events',
     ]),
   },
+  
+  head() {
+    return {
+      title: 'Лайн матчи'
+    }
+  },
 }
 </script>
