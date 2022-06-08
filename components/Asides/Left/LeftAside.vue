@@ -31,13 +31,12 @@ export default {
 .left-side {
   min-width: 200px;
   height: auto;
-  padding: 10px;
   background: #05142C;
   box-sizing: border-box;
 }
 
 .left-side__title {
   @include font(16px, 20px, 600, $white);
-  margin-bottom: 10px;
+  padding: 7px 5px 7px 15px;
 }
 </style>

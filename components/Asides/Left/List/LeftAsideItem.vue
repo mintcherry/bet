@@ -2,6 +2,7 @@
   <div class="left-aside-item">
     <nuxt-link
         v-if="imageOfSport"
+        active-class="active"
         :to="{
           path: link,
           query: {
@@ -90,6 +91,12 @@ export default {
     .left-aside-item__name {
       color: $bard;
     }
+    
+    .left-aside-item__link.active {
+      .left-aside-item__name {
+        color: $white;
+      }
+    }
   }
 }
 
@@ -97,7 +104,11 @@ export default {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 7px 5px;
+  padding: 7px 5px 7px 15px;
+  
+  &.active {
+    background: $bard;
+  }
 }
 
 .left-aside-item__name {
