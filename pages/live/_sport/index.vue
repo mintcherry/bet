@@ -35,15 +35,5 @@ export default {
       'eventsBySport',
     ]),
   },
-  
-  mounted() {
-    console.log(this.$route);
-  },
-  
-  head() {
-    return {
-      // title: 'Лайн -' +
-    }
-  }
 }
 </script>

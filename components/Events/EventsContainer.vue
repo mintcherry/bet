@@ -32,7 +32,7 @@ export default {
 .events-container {
   max-width: 890px;
   width: 100%;
-  margin: 100px auto 0;
+  margin: 30px auto 0;
 }
 
 .events-container__empty {
