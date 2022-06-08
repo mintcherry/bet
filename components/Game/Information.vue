@@ -11,7 +11,7 @@
       {{ tournament }}
     </div>
     
-    <Timer />
+    <!--    <Timer />-->
   </div>
 </template>
 

@@ -44,14 +44,14 @@ export default {
           label: 'Казино',
           url: '/casino',
         },
-        {
-          label: 'Результаты',
-          url: '/results',
-        },
-        {
-          label: 'Проверить купон',
-          url: '/coupon',
-        },
+        // {
+        //   label: 'Результаты',
+        //   url: '/results',
+        // },
+        // {
+        //   label: 'Проверить купон',
+        //   url: '/coupon',
+        // },
         // {
         //   label: 'Ммобильное приложение',
         //   url: '/mobile-app',
