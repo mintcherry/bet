@@ -1,15 +1,17 @@
 <template>
   <div class="header-control">
     <VButton
-      :type="V_BUTTON.WHITE"
-      class="header-control__registration-btn"
+        :type="V_BUTTON.WHITE"
+        class="header-control__registration-btn"
+        @click="$modal.show('RegistrationModal')"
     >
       Регистрация
     </VButton>
-
+    
     <VButton
-      :type="V_BUTTON.BARD"
-      class="header-control__login-btn"
+        :type="V_BUTTON.BARD"
+        class="header-control__login-btn"
+        @click="$modal.show('LoginModal')"
     >
       Войти
     </VButton>
@@ -26,7 +28,7 @@ export default {
   components: {
     VButton,
   },
-
+  
   data: () => ({
     V_BUTTON,
   }),
