@@ -4,6 +4,7 @@
         v-bind="$attrs"
         v-on="$listeners"
         :disabled="isDisabled"
+        :placeholder="placeholder"
         :value="value"
         :type="type"
         class="v-input__input"
@@ -23,6 +24,10 @@ export default {
   },
   props: {
     value: [String, Number],
+    placeholder: {
+      type: String,
+      default: '',
+    },
     type: {
       type: String,
       default: 'text',
@@ -68,11 +73,11 @@ export default {
   z-index: 5;
   
   &::-moz-placeholder {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   &::-webkit-input-placeholder {
-    font-size: 12px;
+    font-size: 14px;
   }
   
   &::-webkit-outer-spin-button,

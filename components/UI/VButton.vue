@@ -1,11 +1,11 @@
 <template>
   <button
-    :type="type"
     :disabled="isDisabled"
+    :type="type"
     v-on="$listeners"
     :class="[
       'v-button',
-      `v-button_${type}`,
+      `v-button_${customType}`,
       { 'disabled' : isDisabled },
     ]"
   >
@@ -23,6 +23,9 @@ export default {
     type: {
       type: String,
       default: null,
+    },
+    customType: {
+      type: String,
     },
     isDisabled: {
       type: Boolean,
