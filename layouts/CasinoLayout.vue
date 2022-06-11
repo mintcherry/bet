@@ -11,6 +11,8 @@
         <nuxt />
       </main>
     </div>
+  
+    <TheModals />
   </div>
 </template>
 
@@ -21,6 +23,7 @@ import SliderContainer from '@/components/System/Slider/SliderContainer';
 
 import TheHeader from '@/components/System/Header/TheHeader';
 import TheNavigation from '@/components/System/Navigation/TheNavigation';
+import TheModals from '@/components/System/Modals/TheModals';
 import LeftAside from '@/components/Asides/Left/LeftAside';
 import RightAside from '@/components/Asides/Right/RightAside';
 
@@ -32,6 +35,7 @@ export default {
     SliderContainer,
     TheHeader,
     TheNavigation,
+    TheModals,
     LeftAside,
     RightAside,
   },

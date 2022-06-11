@@ -1,5 +1,5 @@
 export default {
-  ssr: false,
+  ssr: true,
   head: {
     title: 'bet',
     htmlAttrs: {
